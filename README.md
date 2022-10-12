@@ -395,7 +395,8 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 * drc(fast) doesn't look into hole errors, so switch to drc(complete) and run *drc check*
 * Select the require hole size fixing the error and erase space within hole!
 
-![image](https://user-images.githubusercontent.com/72557903/195417428-baba986c-6679-4486-aeee-b2d32f46ccec.png | width=100)
+![image](https://user-images.githubusercontent.com/72557903/195417428-baba986c-6679-4486-aeee-b2d32f46ccec.png)
+<img src="https://user-images.githubusercontent.com/72557903/195417428-baba986c-6679-4486-aeee-b2d32f46ccec.png" width="48">
 
 * **Exercise 4**
 
