@@ -32,11 +32,11 @@ Although several designs that have been successfully fabricated commercially in 
 
 #### Different steps to add PDK to local machine- 
 
-Inline 'Clone the repository git clone https://github.com/RTimothyEdwards/open_pdks
+'''Clone the repository git clone https://github.com/RTimothyEdwards/open_pdks
 Run cd open_pdks
 Run ./configure --enable-sky130-pdk
 Run make
-Run sudo make install'
+Run sudo make install'''
 
 PS- We were provided with a cloud-based learning environment for this wrokshop, so the entire process will be carried out in this.
 
