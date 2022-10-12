@@ -4,20 +4,31 @@ SKY130 workshop documentation
 ![image](https://user-images.githubusercontent.com/72557903/195252666-574a2ea4-bf38-45ad-93bf-58552108ef1d.png)
 
 **Organized by**: Kunal Gosh, Co-founder, VSD Corp. Pvt. Ltd. <br />
-**Assisted by **- Sumanto Kar, Sr. Project Technical Assistant, IIT Bombay.	 <br />
 **Instructor** : Tim Edwards, works for Efabless and a open tools developer. <br />
+**Assisted by**- Sumanto Kar, Sr. Project Technical Assistant, IIT Bombay. <br />
+
 
 The workshop focusses on getting students to learn about DRC/LVS using Skywater 130nm technology.
 Although this is a mid-advance course; me, as a newbie,  could learn many things related to the physical verification process.
+Any doubt or query was instantly resolved by the heads and well as my peers.
 
 ## DAY 1
-
+ ### TOPICS -
+ 
 * Introduction to Skywater PDK
 * Opensource EDA Tools
 * Understanding Skywater PDK - Layers
 * Understanding Skywater PDK - Devices
 * Understanding Skywater PDK Libraries
 * Opensource Tools And Flows
+
+A joint effort by Google and SkyWater Technology Foundry, the SkyWater Open Source PDK offers a fully open source Process Design Kit and supporting resources that may be used to produce designs that can be manufactured at SkyWater's facilities.
+
+https://github.com/google/skywater-pdk
+
+This repository is intended for the SKY130 process node as of May 2020. The availability of nodes with more cutting-edge technologies may increase in the future if the SKY130 process node release is successful. 
+
+Although several designs that have been successfully fabricated commercially in sizeable quantities have been created using the SKY130 process node and the PDK from which this open source release was developed, the open source PDK is not currently intended to be utilised in production settings. It ought to work for creating test chips and performing basic design verification.
 
 #### Different steps to add PDK to local machine- 
 
@@ -39,40 +50,38 @@ I/O cells (ex: sky130_fd_io)
 
 ## LAB 1
 
-Created symbolic links between various files for the project ‘inverter’
+* Created symbolic links between various files for the project ‘inverter’
 
-xschem - Schematic of various components can be found and it can be clicked upon to view everything!
+* xschem - Schematic of various components can be found and it can be clicked upon to view everything!
 
-1.Shift-I to insert stuff
+	..1.Shift-I to insert stuff
 
-2.Hover+M for moving
+	..2.Hover+M for moving
 
-3.Hover+W for wiring
+	..3.Hover+W for wiring
 
-4.Mouse 1 + q for props
+	..4.Mouse 1 + q for props
 
-5.After properly making the schematic, save it to a symbol and run a working test-bench with the various components.
+	..5.After properly making the schematic, save it to a symbol and run a working test-bench with the various components.
 
-6.Net-list +  Simulate
+	..6.Net-list +  Simulate
 
-7.Go back, turn LVS option on on original and quit.
+ 	..7.Go back, turn LVS option on on original and quit.
 
-Magic -  Upon properly setting up, we can find the technology used as SKY130 and various layers of the technology!
+* Magic -  Upon properly setting up, we can find the technology used as SKY130 and various layers of the technology!
 
-1.magic -d XR - Better 3D rendering for symbols.
+1.magic -d XR - Better 3D rendering for colors/symbols.
 
 2.magic -d OGL - Faster
 
 	Mouse 1- For placing
 	Mouse 3 - For resizing
-  
-I -selecting a component
-
-S-Select 
+  	I -selecting a component
+	S-Select 
 	%what - check component specs
-  
+  	Ctrl+p for param
 	(Moving is different than xschem, move to lower left hand corner and click M after using I)
-(Ctrl+p for param)
+
 
 After joining the layouts, extract and perform lvs on the command line. If properly done, the netlists will be matched!
 ![One](https://user-images.githubusercontent.com/72557903/195254892-02b566d2-f485-4486-ac52-a6c0e13f841b.JPG)
