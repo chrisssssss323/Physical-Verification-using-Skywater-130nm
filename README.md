@@ -118,6 +118,8 @@ A sample NFET portray on magic!
 * Due to some errors , my netlists were not matched! But we'll get them next time.
 
 
+![image](https://user-images.githubusercontent.com/72557903/195380267-009651ea-b3f4-45cf-8ae3-5b4e410105df.png)
+*END OF DAY1*
 
 ## DAY 2
 
