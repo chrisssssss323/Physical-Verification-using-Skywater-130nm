@@ -152,7 +152,31 @@ cif istyle sky130(vendor) is set
 
 ## DAY 3
 ### DESIGN RULE CHECKING ( DEEP DIVE )
-
+#### GLANCE INTO SILICON MAN PROCESS
 1. Silicon manufacturing process is largely a planar process. The layers are added onto or implanted into other layers.
-2. ![image](https://user-images.githubusercontent.com/72557903/195252426-25c7cb76-11f5-40b0-b467-daad84dd01c7.png)
+ ![image](https://user-images.githubusercontent.com/72557903/195252426-25c7cb76-11f5-40b0-b467-daad84dd01c7.png)
+2. All active, passive components , wires etc. are all defined by geometry in these layers.
+3. **Masks** - High resolution stencils with some portions opacified. These are placed on our various layers and the photoresist is broken down. Now the ion implantation or acid etching can be carried out through the space created!
+
+![image](https://user-images.githubusercontent.com/72557903/195314480-f9dc902c-4a73-4691-9850-d1a1535a5dd1.png)
+
+As machines get better and better, the ability of us to congest the geometry of devices get better and better (Moore's law consequence).
+Various other factors that affect the process include materials used, etching time, angle of etching etc. Spot defects are found out (shorts and opens) and if properly done, the distribution of dead chips will be certain percentage of the entire chip count.
+
+![image](https://user-images.githubusercontent.com/72557903/195319611-db1eaf59-b0e0-4eca-a92c-bf5618e27064.png)
+As the spacing is reduced the probability of failure increases exponentially!
+
+DRC may suggest a minimum spacing to get a good process yield, if we space it wider than that, the process yield gets better, but more space is consumed! 
+The DRC documentation of Skywater PDK can be found from-
+
+https://skywater-pdk--136.org.readthedocs.build/en/136/rules.html
+
+#### Some unwaivable rules-
+* Width rule
+
+![image](https://user-images.githubusercontent.com/72557903/195321017-b5137774-b7db-4b3a-962d-5298f400ec2a.png)
+
+![image](https://user-images.githubusercontent.com/72557903/195321235-9a71995d-88ac-4e1a-ab7f-2aebdca235da.png)
+** Feature size
+⋅⋅⋅ Minimum width of a transistor that can be used. For SKY130, as the name suggests, it's 130nm.
 
