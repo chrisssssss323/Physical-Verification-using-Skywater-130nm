@@ -82,10 +82,8 @@ The starting page of Xschem!
 ![Sim](https://user-images.githubusercontent.com/72557903/195254937-f26452c7-2641-46fb-b7a2-2832e87364d8.JPG)
 ![SIM2](https://user-images.githubusercontent.com/72557903/195268038-8cbca9fc-bff2-481c-8bf5-d6375aad5c65.JPG)
 
-* **magic** -  Upon properly setting up, we can find the technology used as SKY130 and various layers of the technology!
-
-1.*magic -d XR* - Better 3D rendering for colors/symbols. <br />
-2.*magic -d OGL* - Faster <br />
+* **magic** -  Upon properly setting up, we can find the technology used as SKY130 and various layers of the technology! *magic -d XR* - Better 3D rendering for colors/symbols and *magic -d OGL* - Faster. <br />
+	
 	1.Mouse 1- For placing <br />
 	2.Mouse 3 - For resizing <br />
   	3.i-selecting a component <br />
