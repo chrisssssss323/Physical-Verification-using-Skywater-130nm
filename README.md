@@ -339,6 +339,6 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 ##### Recommended rules (RR)
 * eg- Using redundant vias
 
-*in addition to DRC, ERC is also another criteria that must be checked. A chip may be ERC correct but may have DRC problems. (eg- Electrmigration and Over-voltage)
+*in addition to DRC, ERC is also another criteria that must be checked. A chip may be ERC correct but may have DRC problems. (eg- Electrmigration and Over-voltage)*
 
 ###  LAB
