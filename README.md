@@ -115,6 +115,7 @@ A sample NFET portray on magic!
 		ext2spice
 		quit
 
+* .mag -> .ext -> .spice
 
 * **ngspice** - Used to study the various characteristics of the design made. Plot functions based on various criteria is readily available.
 * **netgen** - LVS utility that checks the layout design with its schematic between netlists to verify geometry.
@@ -355,12 +356,47 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 ![image](https://user-images.githubusercontent.com/72557903/195382484-8b6a2ada-4aa5-450b-a7dc-c8f128ce261a.png)
 
 * **Exercise 1**
+
 * We learn about the various errors that Tim has taught us during the lectures. ( The errors are marked as white dotted lines )
 
 ![image](https://user-images.githubusercontent.com/72557903/195383230-bda3ef4d-bce7-4658-bdfa-40e0b6958dbe.png)
 
 * Placing the white box over the required area and performing a 'DRC Report' will tell you the exact reason for the error to be reported and the associated rule in brackets.
 * While doing this, make sure you cover the white dots in the select box or else errors won't be reported.
-* 
-* 
+* The white dots tell you the amount of length that must be added or removed to satify the DRC.
+	1.?- DRC REPORT
+	2.b- dimensions
+	3.4- Shift left
+	4.6- Shift right
+	5.8 - Shift up
+	6.2 - Shift down
+	7.Shift + [2,4,6,8] - Stretch down,sides,up
+	8.A- select a layer within box
+* We can also use commands like move (moving) and stret (stretching) and e,w,n,s for directions.
+
+![image](https://user-images.githubusercontent.com/72557903/195405223-d7d34d6d-b2dd-47ea-be83-87f9898d8a2a.png)
+
+* **Exercise 2**
+
+![image](https://user-images.githubusercontent.com/72557903/195414073-0e20ec2b-65e7-4199-95c8-3746211a97fd.png)
+
+* Use of *cif see* command -
+![image](https://user-images.githubusercontent.com/72557903/195408117-c2638548-88db-4128-ad86-40e829a2c7d3.png)
+* Feedback why and clear can show you the area where contact cuts can be placed. If the space is too small its shows a feedback error.
+* box command with options c(all sides),e,w,n,s can help in reshaping our selected box.
+
+![image](https://user-images.githubusercontent.com/72557903/195413558-246ea3a8-6f83-4854-b244-6fc8bda28bfb.png)
+
+* **Exercise 3**
+
+![image](https://user-images.githubusercontent.com/72557903/195414855-c6fb039c-2bb0-4f3b-a5ca-38df5860b2d0.png)
+
+* Minimum area error occurs if there isn't sufficient area of a metal between interconnects.
+* drc(fast) doesn't look into hole errors, so switch to drc(complete) and run *drc check*
+* Select the require hole size fixing the error and erase space within hole!
+
+![image](https://user-images.githubusercontent.com/72557903/195417428-baba986c-6679-4486-aeee-b2d32f46ccec.png)
+
+* **Exercise 4**
+
 
