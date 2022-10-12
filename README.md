@@ -80,7 +80,10 @@ The starting page of Xschem!
 * After properly making the schematic, save it to a symbol and run a working test-bench with the various components. (Be careful not to add any sources on the symbol because this is not what we want. We will check the symbol's functioning on other file with the *inverter_tb* )<br />
 
 ![Sim](https://user-images.githubusercontent.com/72557903/195254937-f26452c7-2641-46fb-b7a2-2832e87364d8.JPG)
+
 ![SIM2](https://user-images.githubusercontent.com/72557903/195268038-8cbca9fc-bff2-481c-8bf5-d6375aad5c65.JPG)
+
+![image](https://user-images.githubusercontent.com/72557903/195255111-0fec957b-a5d7-447c-a9f2-28329c67a1b2.png)
 
 * **magic** -  Upon properly setting up, we can find the technology used as SKY130 and various layers of the technology! *magic -d XR* - Better 3D rendering for colors/symbols and *magic -d OGL* - Faster. <br />
 	
@@ -110,7 +113,6 @@ A sample NFET portray on magic!
 
 * Due to some errors , my netlists were not matched! But we'll get them next time.
 
-![image](https://user-images.githubusercontent.com/72557903/195255111-0fec957b-a5d7-447c-a9f2-28329c67a1b2.png)
 
 
 ## DAY 2
