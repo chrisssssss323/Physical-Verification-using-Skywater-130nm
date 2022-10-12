@@ -389,14 +389,13 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 
 * **Exercise 3**
 
-![image](https://user-images.githubusercontent.com/72557903/195414855-c6fb039c-2bb0-4f3b-a5ca-38df5860b2d0.png)
+<img src="https://user-images.githubusercontent.com/72557903/195414855-c6fb039c-2bb0-4f3b-a5ca-38df5860b2d0.png" width="500">
 
 * Minimum area error occurs if there isn't sufficient area of a metal between interconnects.
 * drc(fast) doesn't look into hole errors, so switch to drc(complete) and run *drc check*
 * Select the require hole size fixing the error and erase space within hole!
 
-![image](https://user-images.githubusercontent.com/72557903/195417428-baba986c-6679-4486-aeee-b2d32f46ccec.png)
-<img src="https://user-images.githubusercontent.com/72557903/195417428-baba986c-6679-4486-aeee-b2d32f46ccec.png" width="48">
+<img src="https://user-images.githubusercontent.com/72557903/195417428-baba986c-6679-4486-aeee-b2d32f46ccec.png" width="500">
 
 * **Exercise 4**
 
