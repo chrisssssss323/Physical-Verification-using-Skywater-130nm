@@ -32,20 +32,20 @@ Although several designs that have been successfully fabricated commercially in 
 
 #### Different steps to add PDK to local machine- 
 
-Clone the repository git clone https://github.com/RTimothyEdwards/open_pdks
+Inline 'Clone the repository git clone https://github.com/RTimothyEdwards/open_pdks
 Run cd open_pdks
 Run ./configure --enable-sky130-pdk
 Run make
-Run sudo make install
+Run sudo make install'
 
 PS- We were provided with a cloud-based learning environment for this wrokshop, so the entire process will be carried out in this.
 
 #### The libraries supported by open_pdks are:
 
-Digital standard cells (ex: sky130_fd_sc_hd) 
-Primitive devices/analog (ex: sky130_fd_pr)
-I/O cells (ex: sky130_fd_io)
-3rd party libraries (ex: sky130_ml_xx_hd)
+* Digital standard cells (ex: sky130_fd_sc_hd) 
+* Primitive devices/analog (ex: sky130_fd_pr)
+* I/O cells (ex: sky130_fd_io)
+* 3rd party libraries (ex: sky130_ml_xx_hd)
 
 
 ## LAB 1
