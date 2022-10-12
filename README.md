@@ -3,18 +3,21 @@ VSD-IAT WS - Physical Verification using SKY130
 SKY130 workshop documentation
 ![image](https://user-images.githubusercontent.com/72557903/195252666-574a2ea4-bf38-45ad-93bf-58552108ef1d.png)
 
-Organized by: Kunal Gosh, Co-founder, VSD Corp. Pvt. Ltd. <br />
-Assisted by - Sumanto Kar, Sr. Project Technical Assistant, IIT Bombay /n
-Instructor: Tim Edwards, works for Efabless and a open tools developer. /n
+**Organized by**: Kunal Gosh, Co-founder, VSD Corp. Pvt. Ltd. <br />
+**Assisted by **- Sumanto Kar, Sr. Project Technical Assistant, IIT Bombay.	 <br />
+**Instructor** : Tim Edwards, works for Efabless and a open tools developer. <br />
+
+The workshop focusses on getting students to learn about DRC/LVS using Skywater 130nm technology.
+Although this is a mid-advance course; me, as a newbie,  could learn many things related to the physical verification process.
 
 ## DAY 1
 
-Introduction to Skywater PDK
-Opensource EDA Tools
-Understanding Skywater PDK - Layers
-Understanding Skywater PDK - Devices
-Understanding Skywater PDK Libraries
-Opensource Tools And Flows
+* Introduction to Skywater PDK
+* Opensource EDA Tools
+* Understanding Skywater PDK - Layers
+* Understanding Skywater PDK - Devices
+* Understanding Skywater PDK Libraries
+* Opensource Tools And Flows
 
 #### Different steps to add PDK to local machine- 
 
