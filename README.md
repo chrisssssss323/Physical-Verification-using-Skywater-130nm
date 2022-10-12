@@ -3,7 +3,7 @@ VSD-IAT WS - Physical Verification using SKY130
 SKY130 workshop documentation
 ![image](https://user-images.githubusercontent.com/72557903/195252666-574a2ea4-bf38-45ad-93bf-58552108ef1d.png)
 
-Organized by: Kunal Gosh, Co-founder, VSD Corp. Pvt. Ltd. __
+Organized by: Kunal Gosh, Co-founder, VSD Corp. Pvt. Ltd. <br />
 Assisted by - Sumanto Kar, Sr. Project Technical Assistant, IIT Bombay /n
 Instructor: Tim Edwards, works for Efabless and a open tools developer. /n
 
