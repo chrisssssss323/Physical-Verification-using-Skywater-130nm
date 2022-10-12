@@ -326,11 +326,19 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 
 ##### Stress rules.
 
- * Slots are provided to ensure the mechanical stress at any point of the metal layer width doesn't exceed a certain limit. Slotting is provided in the direction of current flow
+ * Slots are provided to ensure the mechanical stress at any point of the metal layer width doesn't exceed a certain limit. Slotting is provided in the direction of current flow.
 * Critical corners when provided with proper pad frames can easily overcome stress rules at that point and designer may not worry about it.
 
-#### Density rules
+##### Density rules
 
+* To reduce *bumpiness* of the surface after oxide growth and polishing, we place metal layers and in between them add some 'fill metals', so the surface after polishing is evenly smooth.
+* This is done because, any layers grown on top of this is critically affected by the layer beneath, so density rules make sense.
+* Automatic fill generation tools take care of it for the most part.
+* But for analog engineers it is a nightmare as the extra capacitances will give them a migraine.
 
+##### Recommended rules (RR)
+* eg- Using redundant vias
+
+*in addition to DRC, ERC is also another criteria that must be checked. A chip may be ERC correct but may have DRC problems. (eg- Electrmigration and Over-voltage)
 
 ###  LAB
