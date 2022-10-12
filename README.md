@@ -176,10 +176,7 @@ readspice /usr/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.
 ## DAY 3
 ### DESIGN RULE CHECKING ( DEEP DIVE )
 #### GLANCE INTO SILICON MAN PROCESS
-1. Silicon manufacturing process is largely a planar process. The layers are added onto or implanted into other layers.
-
- ![image](https://user-images.githubusercontent.com/72557903/195252426-25c7cb76-11f5-40b0-b467-daad84dd01c7.png)
- 
+1. Silicon manufacturing process is largely a planar process. The layers are added onto or implanted into other layers. 
 2. All active, passive components , wires etc. are all defined by geometry in these layers.
 3. **Masks** - High resolution stencils with some portions opacified. These are placed on our various layers and the photoresist is broken down. Now the ion implantation or acid etching can be carried out through the space created!
 
@@ -344,3 +341,5 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 *in addition to DRC, ERC is also another criteria that must be checked. A chip may be ERC correct but may have DRC problems. (eg- Electrmigration and Over-voltage)*
 
 ###  LAB
+
+
