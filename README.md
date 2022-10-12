@@ -1,6 +1,7 @@
 # Physical-Verification-using-Skywater-130nm
 VSD-IAT WS - Physical Verification using SKY130
 SKY130 workshop documentation
+## DAY 1
 
 ## LAB 1
 
@@ -43,7 +44,7 @@ S-Select
 
 
 
-
+## DAY 2
 
 ## LAB 2
 Standard start, created a directory for the lab, a directory for the mag file and loaded contents into it.
@@ -75,4 +76,10 @@ S-Select
 So, we run the readspice from within the console and match orderings!
 
 This is really useful but might sometimes lead to errors due to abstract views.
+
+## DAY 3
+### DESIGN RULE CHECKING ( DEEP DIVE )
+
+1. Silicon manufacturing process is largely a planar process. The layers are added onto or implanted into other layers.
+2. ![image](https://user-images.githubusercontent.com/72557903/195252426-25c7cb76-11f5-40b0-b467-daad84dd01c7.png)
 
