@@ -40,6 +40,13 @@ Although several designs that have been successfully fabricated commercially in 
 
 PS- We were provided with a cloud-based learning environment for this wrokshop, so the entire process will be carried out in this.
 
+#### The tools used are:
+
+* magic 
+* xschem
+* netgen
+* ngspice
+
 #### The libraries supported by open_pdks are:
 
 * Digital standard cells (ex: sky130_fd_sc_hd) 
@@ -49,23 +56,27 @@ PS- We were provided with a cloud-based learning environment for this wrokshop, 
 
 
 ## LAB 1
+* Checked the installations of various tools that'll be used in this workshop.
 
-* Created symbolic links between various files for the project ‘inverter’
+* Created a directory for *inverter.
+* Created folders for mag,xschem,ngspice
+* Created symbolic links for the sample project ‘inverter’
+![One](https://user-images.githubusercontent.com/72557903/195254892-02b566d2-f485-4486-ac52-a6c0e13f841b.JPG)
 
-* xschem - Schematic of various components can be found and it can be clicked upon to view everything!
+* **xschem** -Schematic Editor that may be used to import schematics and produce nelists from them or to develop new schematics. To construct schematics, use the symbol libraries in Xschem. Both **ngspice** for analog simulation and **gaw** for examining waveforms are supported. Schematic of various components can be found and it can be clicked upon to view everything!
 
-	1.Shift-I to insert stuff
-	2.Hover+M for moving
-	3.Hover+W for wiring
-	4.Mouse 1 + q for props
-	5.After properly making the schematic, save it to a symbol and run a working test-bench with the various components.
-	6.Net-list +  Simulate
-	7. Go back, turn LVS option on on original and quit.
+	1.Shift-I to insert stuff  <br />
+	2.Hover+M for moving  <br />
+	3.Hover+W for wiring  <br />
+	4.Mouse 1 + q for props  <br />
+	5.After properly making the schematic, save it to a symbol and run a working test-bench with the various components.  <br />
+	6.Net-list +  Simulate  <br />
+	7. Go back, turn LVS option on on original and quit.  <br />
 
-* Magic -  Upon properly setting up, we can find the technology used as SKY130 and various layers of the technology!
+* **magic** -  Upon properly setting up, we can find the technology used as SKY130 and various layers of the technology!
 
-1.magic -d XR - Better 3D rendering for colors/symbols.
-2.magic -d OGL - Faster
+1.magic -d XR - Better 3D rendering for colors/symbols. <br />
+2.magic -d OGL - Faster <br />
 
 	Mouse 1- For placing
 	Mouse 3 - For resizing
@@ -74,10 +85,12 @@ PS- We were provided with a cloud-based learning environment for this wrokshop, 
 	%what - check component specs
   	Ctrl+p for param
 	(Moving is different than xschem, move to lower left hand corner and click M after using I)
+	
+* **ngspice** - Used to study the various characteristics of the design made. Plot functions based on various criteria is readily available.
+* **netgen** - LVS utility that checks the layout design with its schematic between netlists to verify geometry.
 
+* After joining the layouts, extract and perform lvs on the command line. If properly done, the netlists will be matched!
 
-After joining the layouts, extract and perform lvs on the command line. If properly done, the netlists will be matched!
-![One](https://user-images.githubusercontent.com/72557903/195254892-02b566d2-f485-4486-ac52-a6c0e13f841b.JPG)
 
 ![Two](https://user-images.githubusercontent.com/72557903/195254852-dfbe9859-2151-4ddf-94ba-7a501b81b7bc.JPG)
 ![Three](https://user-images.githubusercontent.com/72557903/195254908-6ef9a459-e08d-4460-8725-2098b43bc980.JPG)
