@@ -364,14 +364,14 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 * Placing the white box over the required area and performing a 'DRC Report' will tell you the exact reason for the error to be reported and the associated rule in brackets.
 * While doing this, make sure you cover the white dots in the select box or else errors won't be reported.
 * The white dots tell you the amount of length that must be added or removed to satify the DRC.
-	1.?- DRC REPORT
-	2.b- dimensions
-	3.4- Shift left
-	4.6- Shift right
-	5.8 - Shift up
-	6.2 - Shift down
-	7.Shift + [2,4,6,8] - Stretch down,sides,up
-	8.A- select a layer within box
+	1.?- DRC REPORT <br />
+	2.b- dimensions <br />
+	3.4- Shift left <br />
+	4.6- Shift right <br />
+	5.8 - Shift up <br />
+	6.2 - Shift down <br />
+	7.Shift + [2,4,6,8] - Stretch down,sides,up <br />
+	8.A- select a layer within box <br />
 * We can also use commands like move (moving) and stret (stretching) and e,w,n,s for directions.
 
 ![image](https://user-images.githubusercontent.com/72557903/195405223-d7d34d6d-b2dd-47ea-be83-87f9898d8a2a.png)
