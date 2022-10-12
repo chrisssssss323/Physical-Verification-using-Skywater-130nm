@@ -73,11 +73,11 @@ The starting page of Xschem!
 
 ![Two](https://user-images.githubusercontent.com/72557903/195265694-b6b96f63-6494-491e-98ea-76ee78e1f8d2.JPG)
 
-* Okay now we make our CMOS INVERTER as shown-\
+* Okay now we make our CMOS INVERTER as shown-
 
 ![inverter_schematic](https://user-images.githubusercontent.com/72557903/195254933-f227c76f-2f7e-4162-941b-90f0c863ab15.JPG)
 
-* After properly making the schematic, save it to a symbol and run a working test-bench with the various components. (Be careful not to add any sources on the symbol because this is not what we want. We will check the symbol's functioning on other file with the *inverter_tb* <br />
+* After properly making the schematic, save it to a symbol and run a working test-bench with the various components. (Be careful not to add any sources on the symbol because this is not what we want. We will check the symbol's functioning on other file with the *inverter_tb* )<br />
 
 ![Sim](https://user-images.githubusercontent.com/72557903/195254937-f26452c7-2641-46fb-b7a2-2832e87364d8.JPG)
 ![SIM2](https://user-images.githubusercontent.com/72557903/195268038-8cbca9fc-bff2-481c-8bf5-d6375aad5c65.JPG)
@@ -86,12 +86,12 @@ The starting page of Xschem!
 
 1.*magic -d XR* - Better 3D rendering for colors/symbols. <br />
 2.*magic -d OGL* - Faster <br />
-	1.Mouse 1- For placing
-	2.Mouse 3 - For resizing
-  	3.i-selecting a component
-	4.s-Select 
-	5.%what - check component specs
-  	6.CTRL+p for parameter checks
+	1.Mouse 1- For placing <br />
+	2.Mouse 3 - For resizing <br />
+  	3.i-selecting a component <br />
+	4.s-Select <br />
+	5.%what - check component specs <br />
+  	6.CTRL+p for parameter checks <br />
 	*PS* -Moving is different than xschem, move to lower left hand corner and click M after using I
 
 
@@ -106,12 +106,12 @@ A sample NFET portray on magic!
 * **netgen** - LVS utility that checks the layout design with its schematic between netlists to verify geometry.
 
 * After joining the layouts, extract and perform lvs on the command line. If properly done, the netlists will be matched!
-* 
+
 ![Four](https://user-images.githubusercontent.com/72557903/195254920-1f316ab5-2e74-436d-8295-ddbc055ac5ae.JPG)
 ![Five](https://user-images.githubusercontent.com/72557903/195254923-95b4a37f-7d40-41e3-bfac-87b50a0ec565.JPG)
 
 * Due to some errors , my netlists were not matched! But we'll get them next time.
-* 
+
 ![image](https://user-images.githubusercontent.com/72557903/195255111-0fec957b-a5d7-447c-a9f2-28329c67a1b2.png)
 
 
