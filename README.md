@@ -1,7 +1,38 @@
 # Physical-Verification-using-Skywater-130nm
 VSD-IAT WS - Physical Verification using SKY130
 SKY130 workshop documentation
+![image](https://user-images.githubusercontent.com/72557903/195252666-574a2ea4-bf38-45ad-93bf-58552108ef1d.png)
+
+Organized by: Kunal Gosh, Co-founder, VSD Corp. Pvt. Ltd.
+Assisted by - Sumanto Kar, Sr. Project Technical Assistant, IIT Bombay
+Instructor: Tim Edwards, works for Efabless and a open tools developer.
+
 ## DAY 1
+
+Introduction to Skywater PDK
+Opensource EDA Tools
+Understanding Skywater PDK - Layers
+Understanding Skywater PDK - Devices
+Understanding Skywater PDK Libraries
+Opensource Tools And Flows
+
+#### Different steps to add PDK to local machine- 
+
+Clone the repository git clone https://github.com/RTimothyEdwards/open_pdks
+Run cd open_pdks
+Run ./configure --enable-sky130-pdk
+Run make
+Run sudo make install
+
+PS- We were provided with a cloud-based learning environment for this wrokshop, so the entire process will be carried out in this.
+
+#### The libraries supported by open_pdks are:
+
+Digital standard cells (ex: sky130_fd_sc_hd) 
+Primitive devices/analog (ex: sky130_fd_pr)
+I/O cells (ex: sky130_fd_io)
+3rd party libraries (ex: sky130_ml_xx_hd)
+
 
 ## LAB 1
 
@@ -41,11 +72,18 @@ S-Select
 (Ctrl+p for param)
 
 After joining the layouts, extract and perform lvs on the command line. If properly done, the netlists will be matched!
+![One](https://user-images.githubusercontent.com/72557903/195254892-02b566d2-f485-4486-ac52-a6c0e13f841b.JPG)
 
+![Two](https://user-images.githubusercontent.com/72557903/195254852-dfbe9859-2151-4ddf-94ba-7a501b81b7bc.JPG)
+![Three](https://user-images.githubusercontent.com/72557903/195254908-6ef9a459-e08d-4460-8725-2098b43bc980.JPG)
+![Four](https://user-images.githubusercontent.com/72557903/195254920-1f316ab5-2e74-436d-8295-ddbc055ac5ae.JPG)
 
+![Five](https://user-images.githubusercontent.com/72557903/195254923-95b4a37f-7d40-41e3-bfac-87b50a0ec565.JPG)
+![inverter_schematic](https://user-images.githubusercontent.com/72557903/195254933-f227c76f-2f7e-4162-941b-90f0c863ab15.JPG)
+
+![Sim](https://user-images.githubusercontent.com/72557903/195254937-f26452c7-2641-46fb-b7a2-2832e87364d8.JPG)
 
 ## DAY 2
-
 ## LAB 2
 Standard start, created a directory for the lab, a directory for the mag file and loaded contents into it.
 
