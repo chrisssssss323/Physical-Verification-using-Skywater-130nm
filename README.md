@@ -48,7 +48,7 @@ Although several designs that have been successfully fabricated commercially in 
 * 3rd party libraries (ex: sky130_ml_xx_hd)
 
 
-## LAB 1
+### LAB
 
 * Checked the installations of various tools that'll be used in this workshop.
 
@@ -57,7 +57,7 @@ Although several designs that have been successfully fabricated commercially in 
 * Created symbolic links for the sample project ‘inverter’
 ![One](https://user-images.githubusercontent.com/72557903/195254892-02b566d2-f485-4486-ac52-a6c0e13f841b.JPG)
 
-### Brief Idea about XSCHEM!
+#### Ideas about various tools is given along with the workflow!
 
 * **xschem** -Schematic Editor that may be used to import schematics and produce nelists from them or to develop new schematics. To construct schematics, use the symbol libraries in Xschem. Both **ngspice** for analog simulation and **gaw** for examining waveforms are supported. Schematic of various components can be found and it can be clicked upon to view everything!
 
