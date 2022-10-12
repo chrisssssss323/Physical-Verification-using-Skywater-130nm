@@ -116,6 +116,8 @@ S-Select
 So, we run the readspice from within the console and match orderings!
 
 This is really useful but might sometimes lead to errors due to abstract views.
+![PortsLEF](https://user-images.githubusercontent.com/72557903/195255262-d5d91710-eea8-4163-9919-c5049ceca80c.JPG)
+![fulldrc](https://user-images.githubusercontent.com/72557903/195255295-470dc09d-58dd-4243-be25-25823c2cbbc0.JPG)
 
 ## DAY 3
 ### DESIGN RULE CHECKING ( DEEP DIVE )
