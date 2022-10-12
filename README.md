@@ -2,7 +2,7 @@
 VSD-IAT WS - Physical Verification using SKY130
 SKY130 workshop documentation
 
-##LAB 1
+## LAB 1
 
 Created symbolic links between various files for the project ‘inverter’
 
@@ -45,7 +45,7 @@ S-Select
 
 
 
-##LAB 2
+## LAB 2
 Standard start, created a directory for the lab, a directory for the mag file and loaded contents into it.
 
 Read gds files into the magic tkcon terminal and loaded it.
