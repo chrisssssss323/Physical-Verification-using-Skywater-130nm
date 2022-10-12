@@ -86,6 +86,7 @@ The starting page of Xschem!
 ![image](https://user-images.githubusercontent.com/72557903/195255111-0fec957b-a5d7-447c-a9f2-28329c67a1b2.png)
 
 * **magic** -  Upon properly setting up, we can find the technology used as SKY130 and various layers of the technology! *magic -d XR* - Better 3D rendering for colors/symbols and *magic -d OGL* - Faster. <br />
+* Documentation on magic! -http://opencircuitdesign.com/magic/tutorials/tut2.html
 	
 	1.Mouse 1- For placing <br />
 	2.Mouse 3 - For resizing <br />
@@ -94,6 +95,8 @@ The starting page of Xschem!
 	5.%what - check component specs <br />
   	6.CTRL+p for parameter checks <br />
 	*PS* -Moving is different than xschem, move to lower left hand corner and click M after using I
+* CMOS Inverter in magic
+![image](https://user-images.githubusercontent.com/72557903/195334075-2d321786-baab-4220-a5e5-57dc65ea06fa.png)
 
 
 A sample NFET portray on magic!
@@ -154,7 +157,9 @@ cif istyle sky130(vendor) is set
 ### DESIGN RULE CHECKING ( DEEP DIVE )
 #### GLANCE INTO SILICON MAN PROCESS
 1. Silicon manufacturing process is largely a planar process. The layers are added onto or implanted into other layers.
+
  ![image](https://user-images.githubusercontent.com/72557903/195252426-25c7cb76-11f5-40b0-b467-daad84dd01c7.png)
+ 
 2. All active, passive components , wires etc. are all defined by geometry in these layers.
 3. **Masks** - High resolution stencils with some portions opacified. These are placed on our various layers and the photoresist is broken down. Now the ion implantation or acid etching can be carried out through the space created!
 
@@ -164,6 +169,7 @@ As machines get better and better, the ability of us to congest the geometry of 
 Various other factors that affect the process include materials used, etching time, angle of etching etc. Spot defects are found out (shorts and opens) and if properly done, the distribution of dead chips will be certain percentage of the entire chip count.
 
 ![image](https://user-images.githubusercontent.com/72557903/195319611-db1eaf59-b0e0-4eca-a92c-bf5618e27064.png)
+
 As the spacing is reduced the probability of failure increases exponentially!
 
 DRC may suggest a minimum spacing to get a good process yield, if we space it wider than that, the process yield gets better, but more space is consumed! 
@@ -171,12 +177,63 @@ The DRC documentation of Skywater PDK can be found from-
 
 https://skywater-pdk--136.org.readthedocs.build/en/136/rules.html
 
-#### Some unwaivable rules-
-* Width rule
+#### Metal layer rules
+
+##### Width rule
 
 ![image](https://user-images.githubusercontent.com/72557903/195321017-b5137774-b7db-4b3a-962d-5298f400ec2a.png)
 
 ![image](https://user-images.githubusercontent.com/72557903/195321235-9a71995d-88ac-4e1a-ab7f-2aebdca235da.png)
-** Feature size
-⋅⋅⋅ Minimum width of a transistor that can be used. For SKY130, as the name suggests, it's 130nm.
 
+* Feature size -Minimum width of a transistor that can be used. For SKY130, as the name suggests, it's 130nm. (But there's some misnomers associated with it)
+
+##### Spacing rule
+
+![image](https://user-images.githubusercontent.com/72557903/195323595-10a8b3e1-7290-42d3-9a13-b30231af67ec.png)
+
+* Notably ,Skywater 130 doesn't need to account for run length rule.
+
+##### Wide-spacing rule
+
+* If one piece of the structure is wider than a given width, other wires of any width must be spaced apart at a greater distance.
+* Metals >3 microns trigger widespacing rule in SKY130.
+
+
+##### Notch rule
+
+* Similar, if not the same, to spacing rule. But notch rule is associated with a fork geometry.
+
+##### Minimum and maximum area rules
+
+* Gives the minimum and maximum areas for a metal layer.
+* Prevents delamination issues in the metal surface.
+
+##### Minimum hole area rule
+
+* Holes smaller than a particular dimension may lead to oxide layer may not completely fill it.
+
+##### Contact cut (Via) rule
+
+![image](https://user-images.githubusercontent.com/72557903/195327741-98e5c5ef-4225-450d-97df-4d4ae5c880bc.png)
+
+* A minimal amount of metal must be present around contact cuts.
+* Magic presents arrays of contact cuts for the same layer to layer connect as a single huge contact cut (via). It comprises of poly, contact cuts as well as local interconnects squeezed into one diagonal cuts squares.
+#### Local Interconnect Rules
+
+* In most foundry procedures, polysilicon layers are directly followed by aluminium. Between the polysilicon and metal layers, SkyWater uses local connection layers as routing layers. The rules for this layer are based on the material's physical characteristics, particularly its resistance per square.
+
+#### Front-end rules
+
+* These rules are device specific and an analog or a digital engineer need not care about this as they use standard cells which are already available which doesn't violate any DRC rules.
+* MOSFETS  have various rules of minumum gate width, length spacing rules. Magic gives different device types for different forms of the same device( eg- pfet, lvtpfet, scpfet, etc)
+
+#### Wells and taps
+
+* **Tap is a region of space inside a well an has the same doping type as the well but opposite type of the implanted source or drain of the transistor**.
+* Taps are naturally connected to the wells and specifically there to provide bias voltages so that the p-n junnctions formed by the MOSFET is reverse biased at all times to prevent any uncontrolled currents flowing through the MOSFET.
+* There are spacing rules associated with taps and the transistor regions.
+* **Same-net spacing rule**- If two well regions are of different nets there must be more spacing between tham than if they were part of the same net.
+
+#### Deep n-well isolation
+
+*
