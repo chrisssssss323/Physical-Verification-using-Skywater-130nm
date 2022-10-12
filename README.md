@@ -82,6 +82,8 @@ S-Select
 ![inverter_schematic](https://user-images.githubusercontent.com/72557903/195254933-f227c76f-2f7e-4162-941b-90f0c863ab15.JPG)
 
 ![Sim](https://user-images.githubusercontent.com/72557903/195254937-f26452c7-2641-46fb-b7a2-2832e87364d8.JPG)
+![image](https://user-images.githubusercontent.com/72557903/195255111-0fec957b-a5d7-447c-a9f2-28329c67a1b2.png)
+
 
 ## DAY 2
 ## LAB 2
