@@ -12,6 +12,7 @@
 The workshop focusses on getting students to learn about DRC/LVS using Skywater 130nm technology.
 Although this is a mid-advance course; me, as a newbie,  could learn many things related to the physical verification process.
 Any doubt or query was instantly resolved by the heads and well as my peers.
+(Pictures used in the documentation are created by Tim Edwards and VSD.)
 
 ## DAY 1
 
@@ -140,18 +141,35 @@ cif istyle sky130(vendor) is set
 * port first
 * port 1 name,class,use (spits out default (GDS is bad at taking in metadata. But some order must be there to these ports, to analyze them))
 * When we look into various aspects of the ports, we see that the .spice file has the ordering completely different to that of the gds.
+* This is because the magic doesn't use the exact metadata of the gds file. Alternatively, the metadata can be captured from lef and spice files or cdl netlists.
 * We use the lef command to solve this problem!
 
-		I learnt more about the lef command in this website.
+	I learnt more about the lef command in this website.
 		https://teamvlsi.com/2020/05/lef-lef-file-in-asic-design.html
-		Lef files are associated with placement and routing, therefore we won’t find any transistors present in this particular view. (Abstract view)
+	Lef files are associated with placement and routing, therefore we won’t find any transistors present in this particular view. (Abstract view)
     
 * Now, we get proper annotation for different ports but still the .spice is not matched with the port ordering.
-* So, we run the readspice from within the console and match orderings!
-* This is really useful but might sometimes lead to errors due to abstract views.
-*
+* So, we run the readspice from within the console and match orderings! <br />
+readspice /usr/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice
+* * This is really useful but might sometimes lead to errors due to abstract views.
+
+![LefAbstractview](https://user-images.githubusercontent.com/72557903/195348415-476e12f1-daa6-4136-8a64-1ea485fcd3fc.JPG)
+
 ![PortsLEF](https://user-images.githubusercontent.com/72557903/195255262-d5d91710-eea8-4163-9919-c5049ceca80c.JPG)
+
+* **Extraction**
+
+	*extract all* <br />
+	*ext2spice lvs* <br />
+	*ext2spice cthresh 0* <br />
+	*ext2spice* <br />
+	
+* **Full DRC**
+	
 ![fulldrc](https://user-images.githubusercontent.com/72557903/195255295-470dc09d-58dd-4243-be25-25823c2cbbc0.JPG)
+
+* **LVS**
+(Incomplete)
 
 ## DAY 3
 ### DESIGN RULE CHECKING ( DEEP DIVE )
@@ -173,6 +191,7 @@ Various other factors that affect the process include materials used, etching ti
 As the spacing is reduced the probability of failure increases exponentially!
 
 DRC may suggest a minimum spacing to get a good process yield, if we space it wider than that, the process yield gets better, but more space is consumed! 
+
 The DRC documentation of Skywater PDK can be found from-
 
 https://skywater-pdk--136.org.readthedocs.build/en/136/rules.html
@@ -236,4 +255,63 @@ https://skywater-pdk--136.org.readthedocs.build/en/136/rules.html
 
 #### Deep n-well isolation
 
+* Generally Deep-N well is used to isolate NMOS from the substrate of other NMOS.
+For example suppose all the NMOS in a amplifier is kept in PWELL (common substrate ) and that is connectet to GND and there is another NMOS whose substrate is connected to other potential not to gnd. In that case you need to isolate that NMOS from other NMOS, otherwise substrate will get short. So to avoid this Deep-N well is used.
+
+So, for that you have to put that particular NMOS in a Deep-N well Layer and that MOS should surround with a N-well guardring.
+Here DeepNwell is act as a bottom side and the NWELL guardring is act as a sidewall to seperate that particular NMOS from common P-type substrate.
+
+* It has huge minimum space and minimum width requirements.
+
+#### High Voltage rules
+
+* The n-well beneath the p type transistor, as well as the source and drain of both n and p type transistors, can withstand greater voltages thanks to high voltage implants in transistors. In order to prevent gate punch through at higher voltages, high voltage transistors also require thicker gate oxide layers. The high voltage layer has a lot of restrictions because the transistor is directly affected by it.  Transistor gates must be bigger and longer, and N-wells need more space between themselves and low voltage wells.
+
+#### Device rules
+
+##### Resistors
+
+* Resistors can be made out of diffusion layers, polysilicon layers or p-well regions deep inside n-wells.
+* Polysilicon layers are the most used, and it can have varying resistive properties per square as needed by the designer. 
+* It has some specific rules associated with it.
+* It's easier sometimes to make the resistors by hand.
+
+##### Capacitors
+
+* *Types*- Varactor, MOSCAP, MiM and Vertical Parallel plate (VPP) or MoM
+* MiM has a very high capacitance er unit area than VPPs.
+* Aspect ratio regulations, bottom and top layer regulations, and antenna regulations are all applicable to MiMs.
+
+##### Diodes
+
+* Diodes can be formed by a well and a diffusion layer. So by definition, we can have lot of unwanted diode activities inside a transistor due to several parasitic diode forming between the different layers
+
+##### Fixed layouts
+
+Eg- Several devices like a PNP bipolar transistor is already present as a block in magic, so need not care about making them DRC satisfied, we just have to take care of the rules associated with spacing of this device between other devices!
+
+#### Miscellaneous rules
+
+* Present in the documentation under *X* category.
+* These are not layer specific rules.
+
+##### Off-grid errors
+
+* magic has a really good system internally to prevent any off-grid errors.
+* Only way to create an off-grid error in magic is by superposing non-manhattan layers
+
+##### Angle limitations
+* diff,tap,poly,contacts - 90 ( Must be rectangular )
+* 45 degrees to all other layers
+
+##### Seal-ring rules
+
+#### Rules associated with problems that may arise
+
+##### Latch-Up rules
+
 *
+
+
+
+###  LAB
