@@ -237,6 +237,7 @@ https://skywater-pdk--136.org.readthedocs.build/en/136/rules.html
 
 * A minimal amount of metal must be present around contact cuts.
 * Magic presents arrays of contact cuts for the same layer to layer connect as a single huge contact cut (via). It comprises of poly, contact cuts as well as local interconnects squeezed into one diagonal cuts squares.
+
 #### Local Interconnect Rules
 
 * In most foundry procedures, polysilicon layers are directly followed by aluminium. Between the polysilicon and metal layers, SkyWater uses local connection layers as routing layers. The rules for this layer are based on the material's physical characteristics, particularly its resistance per square.
@@ -310,7 +311,25 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 
 ##### Latch-Up rules
 
-*
+![image](https://user-images.githubusercontent.com/72557903/195354677-5c6ff147-8ff5-44a0-8118-bdbf269b3e22.png)
+
+* Parasitic PNP AND NPN creates a condition called latchup. When these lousy transitors get their EB jn forward biased, the transitor is basically short-circuited to the ground and the chip will be stuck-at-state until power supply is turned OFF. 
+* This may be due to the fact that the tap bias voltage may be different to the voltage local to the PN junctions
+* Therefore, there is a basic tap to diffusion distance.
+
+##### Antenna rules
+
+* A long metal line not attached to anything will accumulate charge and if this charge is not sinked it, it will develop into a very high voltage.
+* This will affect a transitor closest to it very badly.
+* One way to fix antenna violation is to provide a path to the ground through parasitic PN junction of diffusion.
+* Make sure all digital block elements have diode placements.
+
+##### Stress rules.
+
+ * Slots are provided to ensure the mechanical stress at any point of the metal layer width doesn't exceed a certain limit. Slotting is provided in the direction of current flow
+* Critical corners when provided with proper pad frames can easily overcome stress rules at that point and designer may not worry about it.
+
+#### Density rules
 
 
 
