@@ -32,11 +32,11 @@ Although several designs that have been successfully fabricated commercially in 
 
 #### Different steps to add PDK to local machine- 
 
-'''Clone the repository git clone https://github.com/RTimothyEdwards/open_pdks
-Run cd open_pdks
-Run ./configure --enable-sky130-pdk
-Run make
-Run sudo make install'''
+	Clone the repository git clone https://github.com/RTimothyEdwards/open_pdks
+	Run cd open_pdks
+	Run ./configure --enable-sky130-pdk
+	Run make
+	Run sudo make install
 
 PS- We were provided with a cloud-based learning environment for this wrokshop, so the entire process will be carried out in this.
 
@@ -54,24 +54,17 @@ PS- We were provided with a cloud-based learning environment for this wrokshop, 
 
 * xschem - Schematic of various components can be found and it can be clicked upon to view everything!
 
-	..1.Shift-I to insert stuff
-
-	..2.Hover+M for moving
-
-	..3.Hover+W for wiring
-
-	..4.Mouse 1 + q for props
-
-	..5.After properly making the schematic, save it to a symbol and run a working test-bench with the various components.
-
-	..6.Net-list +  Simulate
-
- 	..7.Go back, turn LVS option on on original and quit.
+	1.Shift-I to insert stuff
+	2.Hover+M for moving
+	3.Hover+W for wiring
+	4.Mouse 1 + q for props
+	5.After properly making the schematic, save it to a symbol and run a working test-bench with the various components.
+	6.Net-list +  Simulate
+	7. Go back, turn LVS option on on original and quit.
 
 * Magic -  Upon properly setting up, we can find the technology used as SKY130 and various layers of the technology!
 
 1.magic -d XR - Better 3D rendering for colors/symbols.
-
 2.magic -d OGL - Faster
 
 	Mouse 1- For placing
@@ -107,27 +100,20 @@ PS- We were provided with a cloud-based learning environment for this wrokshop, 
 	gds ..
 	gds noduplicates true (to avoid rewriting the file)
   
-Using cell manager, we see the components in the scroll list.
-
-Placed an AND2_1 gate
-
-Analysing various aspects of ports
-
-port first
-
-port 1 name,class,use (spits out default (GDS is bad at taking in metadata. But some order must be there to these ports, to analyze them))
-
-When we look into various aspects of the ports, we see that the .spice file has the ordering completely different to that of the gds.
-
-We use the lef command to solve this problem!
+* Using cell manager, we see the components in the scroll list.
+* Placed an AND2_1 gate
+* Analysing various aspects of ports
+* port first
+* port 1 name,class,use (spits out default (GDS is bad at taking in metadata. But some order must be there to these ports, to analyze them))
+* When we look into various aspects of the ports, we see that the .spice file has the ordering completely different to that of the gds.
+* We use the lef command to solve this problem!
 		https://teamvlsi.com/2020/05/lef-lef-file-in-asic-design.html
 		Lef files are associated with placement and routing, therefore we won’t find any transistors present in this particular view. (Abstract view)
     
-Now, we get proper annotation for different ports but still the .spice is not matched with the port ordering.
-
-So, we run the readspice from within the console and match orderings!
-
-This is really useful but might sometimes lead to errors due to abstract views.
+* Now, we get proper annotation for different ports but still the .spice is not matched with the port ordering.
+* So, we run the readspice from within the console and match orderings!
+* This is really useful but might sometimes lead to errors due to abstract views.
+* 
 ![PortsLEF](https://user-images.githubusercontent.com/72557903/195255262-d5d91710-eea8-4163-9919-c5049ceca80c.JPG)
 ![fulldrc](https://user-images.githubusercontent.com/72557903/195255295-470dc09d-58dd-4243-be25-25823c2cbbc0.JPG)
 
