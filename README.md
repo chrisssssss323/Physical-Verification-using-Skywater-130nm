@@ -107,6 +107,15 @@ A sample NFET portray on magic!
 
 ![InverterLayout](https://user-images.githubusercontent.com/72557903/195268308-7fc231cf-ca46-4620-960b-160bf8864fe7.JPG)
 
+* Perform extraction using- <br />
+
+		extract do local
+		extract all
+		ext2spcie lvs
+		ext2spice
+		quit
+
+
 * **ngspice** - Used to study the various characteristics of the design made. Plot functions based on various criteria is readily available.
 * **netgen** - LVS utility that checks the layout design with its schematic between netlists to verify geometry.
 
@@ -133,9 +142,10 @@ cif istyle sky130(vendor) is set
 
 * Read gds files into the magic tkcon terminal and loaded it.
 
-	cif istyle sky130 (vendor)
-	gds ..
-	gds noduplicates true (to avoid rewriting the file)
+		cif istyle sky130 (vendor)
+		gds ..
+		gds noduplicates true (to avoid rewriting the file)
+	
   
 * Using cell manager, we see the components in the scroll list.
 * Placed an AND2_1 gate
@@ -145,10 +155,8 @@ cif istyle sky130(vendor) is set
 * When we look into various aspects of the ports, we see that the .spice file has the ordering completely different to that of the gds.
 * This is because the magic doesn't use the exact metadata of the gds file. Alternatively, the metadata can be captured from lef and spice files or cdl netlists.
 * We use the lef command to solve this problem!
-
-	I learnt more about the lef command in this website.
-		https://teamvlsi.com/2020/05/lef-lef-file-in-asic-design.html
-	Lef files are associated with placement and routing, therefore we won’t find any transistors present in this particular view. (Abstract view)
+* I learnt more about the lef command in this website https://teamvlsi.com/2020/05/lef-lef-file-in-asic-design.html
+* Lef files are associated with placement and routing, therefore we won’t find any transistors present in this particular view. (Abstract view)
     
 * Now, we get proper annotation for different ports but still the .spice is not matched with the port ordering.
 * So, we run the readspice from within the console and match orderings! <br />
@@ -161,10 +169,10 @@ readspice /usr/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.
 
 * **Extraction**
 
-	*extract all* <br />
-	*ext2spice lvs* <br />
-	*ext2spice cthresh 0* <br />
-	*ext2spice* <br />
+		*extract all* <br />
+		*ext2spice lvs* <br />
+		*ext2spice cthresh 0* <br />
+		*ext2spice* <br />
 	
 * **Full DRC**
 	
@@ -342,4 +350,17 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 
 ###  LAB
 
+* Cloned TimEdward's repo into our terminal and accessed magic from the directory.
+
+![image](https://user-images.githubusercontent.com/72557903/195382484-8b6a2ada-4aa5-450b-a7dc-c8f128ce261a.png)
+
+* **Exercise 1**
+* We learn about the various errors that Tim has taught us during the lectures. ( The errors are marked as white dotted lines )
+
+![image](https://user-images.githubusercontent.com/72557903/195383230-bda3ef4d-bce7-4658-bdfa-40e0b6958dbe.png)
+
+* Placing the white box over the required area and performing a 'DRC Report' will tell you the exact reason for the error to be reported and the associated rule in brackets.
+* While doing this, make sure you cover the white dots in the select box or else errors won't be reported.
+* 
+* 
 
