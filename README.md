@@ -397,6 +397,37 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 
 <img src="https://user-images.githubusercontent.com/72557903/195417428-baba986c-6679-4486-aeee-b2d32f46ccec.png" width="500">
 
-* **Exercise 4**
+![image](https://user-images.githubusercontent.com/72557903/195532829-b9c85750-ff33-49b5-b77c-8af14f4aa236.png)
+
+![image](https://user-images.githubusercontent.com/72557903/195533262-a40f6561-9977-42a7-b10c-4f157fc7dc30.png)
+
+### DAY 5
+
+#### LVS (Layout vs Schematic)
+
+##### Fundamentals of LVS
+
+* The designer does both LVS and DRC before tapeout.
+* The netlists produced by each of the processes is compared with each other and matched. After tapeout, its send to the foundry, where it does DRC again before final processes.
+* LVS is done by comaring the schematic netlist and the layout netlist
+* *netgen* is the Open Source tool for doing LVS and can understand ssimulatable formats like VerilogRTL and SPICE.
+
+##### Schematics
+
+* Schematics are made in Xschem with the components.
+* The entire circuitry is converted into one big symbol with I/0 ports.
+* The symbol is ran to check it's required working with a testbench and the waveforms are checked.
+
+
+##### LVS Matching
+
+* Purely comparsion based matching techniques.
+* The main way of check is by checking connections of the cells that needs to be compared.
+* eq- We got a cell with 100 connections to VDD and another with 99 connections to power rail. What may happen is that the circuit is not matched and each every connection in the cell will flag the same error.
+* 
+
+
+
+
 
 
