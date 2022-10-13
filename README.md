@@ -355,7 +355,7 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 
 ![image](https://user-images.githubusercontent.com/72557903/195382484-8b6a2ada-4aa5-450b-a7dc-c8f128ce261a.png)
 
-* **Exercise 1**
+* **Exercise**
 
 * We learn about the various errors that Tim has taught us during the lectures. ( The errors are marked as white dotted lines )
 
@@ -376,7 +376,7 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 
 ![image](https://user-images.githubusercontent.com/72557903/195405223-d7d34d6d-b2dd-47ea-be83-87f9898d8a2a.png)
 
-* **Exercise 2**
+* **Exercise**
 
 ![image](https://user-images.githubusercontent.com/72557903/195414073-0e20ec2b-65e7-4199-95c8-3746211a97fd.png)
 
@@ -387,7 +387,7 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 
 ![image](https://user-images.githubusercontent.com/72557903/195413558-246ea3a8-6f83-4854-b244-6fc8bda28bfb.png)
 
-* **Exercise 3**
+* **Exercise**
 
 <img src="https://user-images.githubusercontent.com/72557903/195414855-c6fb039c-2bb0-4f3b-a5ca-38df5860b2d0.png" width="500">
 
@@ -397,9 +397,18 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 
 <img src="https://user-images.githubusercontent.com/72557903/195417428-baba986c-6679-4486-aeee-b2d32f46ccec.png" width="500">
 
-![image](https://user-images.githubusercontent.com/72557903/195532829-b9c85750-ff33-49b5-b77c-8af14f4aa236.png)
+* **Exercise**
+
+* ![image](https://user-images.githubusercontent.com/72557903/195603194-bff17f7a-418a-4966-98ae-e8c4395fb11e.png)
+
+* n-wells require an n-tap by default. p-subs need not, butin case they do, they'll need a contact as a must.
+
+![image](https://user-images.githubusercontent.com/72557903/195611739-82036f36-be10-4bc6-8ede-f2ec8d034d9f.png)
+
+* **Exercise**
 
 ![image](https://user-images.githubusercontent.com/72557903/195533262-a40f6561-9977-42a7-b10c-4f157fc7dc30.png)
+
 
 ### DAY 5
 
@@ -474,5 +483,22 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 * eg - A W=20, M=1 PFET will be matched with W=1 PFETs with 20 of them M=20 connected in parallel.
 
 
+### LAB
+
+* Focusses on doing LVS with *netgen*
+* We use Tim's sample repo to do various excercises in this section.
+* Simple LVS experiment
+
+![image](https://user-images.githubusercontent.com/72557903/195617064-b736a008-0fb5-4f8d-9bac-f0a9d3072a59.png)
+![image](https://user-images.githubusercontent.com/72557903/195632010-3d185434-e118-4dc2-a7ea-343ba8c835ec.png)
+
+* Netgen doesn't care about pin names at the sub level; but it does at the top level because it cannot make any assumptions there.
+* So, subcircuits having different pin names wont be raised as an error in netgen.
 
 
+![image](https://user-images.githubusercontent.com/72557903/195639741-12a94349-d08f-4d31-9994-20858c2a34c4.png)
+
+* See, even changing the subcircuit pin names, doesnt raise an error in netgen.
+
+* If we totally swap the pins, we get a netlist match, but a top level pin matching error.
+* 
