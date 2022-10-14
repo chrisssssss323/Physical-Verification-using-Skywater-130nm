@@ -408,6 +408,10 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 
 ![image](https://user-images.githubusercontent.com/72557903/195533262-a40f6561-9977-42a7-b10c-4f157fc7dc30.png)
 
+* **Exercise**
+
+
+
 
 ### DAY 5
 
@@ -602,8 +606,8 @@ R -> Resistor, C -> Capacitor, D-> Diode
 
 * After going through the setup.tcl file and understanding that the environment variable needs to be added to the run_lvs.sh by
 		
-		export MAGIC_EXT_USE_GDS =1
-
+		export MAGIC_EXT_USE_GDS=1
+		
 ![image](https://user-images.githubusercontent.com/72557903/195831461-d0ca2ce1-57ec-41eb-a958-98a6bc4749b6.png)
 
 #### LVS FOR MACROS
@@ -628,8 +632,31 @@ R -> Resistor, C -> Capacitor, D-> Diode
 
 #### LVS DIGITAL PLL
 
-*
+* Extraction of digital PLL
 
+![image](https://user-images.githubusercontent.com/72557903/195841838-51e69610-757a-4fe9-a2fa-bbd6c8f52458.png)
+
+* Running LVS with netgen
+
+![image](https://user-images.githubusercontent.com/72557903/195841965-69d1918d-e27e-46c1-8da0-da51dabdb561.png)
+
+* On examining the the comp.out file we see that the subcircuits produce no error mismatches as expected, but the top level shows some device mismatches.
+
+![image](https://user-images.githubusercontent.com/72557903/195842461-4a2a60f4-3a17-48b4-a4c5-c492f5521615.png)
+
+* After doing the same solution used in the earlier exercise, we can use the change in the script and run LVS again.
+
+		export MAGIC_EXT_USE_GDS=1
+
+![image](https://user-images.githubusercontent.com/72557903/195843986-c744dd66-4baa-4e32-a499-ca719f4bbff9.png)
+
+* On *greg*-ing our way into the .v and .mag files to check for *diode*, we see that the content is not present in th .v file but only in the .mag file.
+
+![image](https://user-images.githubusercontent.com/72557903/195845080-daa860e3-5a56-47f8-9a70-bac236453977.png)
+
+* Adding diode to our verilog file with the same instances and connections as our layout is done, and the missing diode instance problem in the verilog portion of the code is solved.
+
+* From the layout, we curate the errors due to power supply problems.
 ## REFERENCES
 
 https://web.stanford.edu/class/ee133/handouts/general/spice_ref.pdf ( For knowledge on how to read SPICE files)
