@@ -179,7 +179,39 @@ readspice /usr/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.
 ![fulldrc](https://user-images.githubusercontent.com/72557903/195255295-470dc09d-58dd-4243-be25-25823c2cbbc0.JPG)
 
 * **LVS**
-(Incomplete)
+
+		mkdir netgen 
+		cd netgen
+		cp /usr/share/pdk/sky130A/libs.tech/netgen/sky130A_setup.tcl ./setup.tcl
+		cd ../mag
+		magic -d XR sky130_fd_sc_hd__and2_1
+		ext2spice lvs
+		ext2spice lvs
+		ext2spice
+		quit
+		cd ../netgen
+		netgen -batch lvs "../mag/sky130_fd_sc_hd__and2_1.spice sky130_fd_sc_hd__and2_1" "/usr/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice sky130_fd_sc_hd__and2_1"
+
+
+
+* **Setup for XOR**
+
+		cd ../mag
+		magic -d XR
+		load sky130_fd_sc_hd__and2_1
+		save altered
+		load altered
+		erase li
+		flatten -nolabels xor_test
+		load sky130_fd_sc_hd__and2_1
+		xor -nolabels xor_test
+		load xor_test
+		quit
+		magic -d XR
+		load test3
+		flatten -nolabels xor_test
+		xor -nolabels xor_test
+		load xor_test
 
 ## DAY 3
 ### DESIGN RULE CHECKING ( DEEP DIVE )
@@ -371,6 +403,7 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 	6.2 - Shift down <br />
 	7.Shift + [2,4,6,8] - Stretch down,sides,up <br />
 	8.A- select a layer within box <br />
+
 * We can also use commands like move (moving) and stret (stretching) and e,w,n,s for directions.
 
 ![image](https://user-images.githubusercontent.com/72557903/195405223-d7d34d6d-b2dd-47ea-be83-87f9898d8a2a.png)
@@ -409,9 +442,38 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 ![image](https://user-images.githubusercontent.com/72557903/195533262-a40f6561-9977-42a7-b10c-4f157fc7dc30.png)
 
 * **Exercise**
+(Angle error and overloap rule)
 
+Part 1
 
+![image](https://user-images.githubusercontent.com/72557903/195854154-2fcdb8e1-0736-4ee2-a389-cd967df9d9e0.png)
+![image](https://user-images.githubusercontent.com/72557903/195854750-8c0974f8-ebc3-47fa-9044-c2c5dd9f3f38.png)
 
+Part 2
+
+![image](https://user-images.githubusercontent.com/72557903/195855595-2c231049-2245-4e35-9a3c-e3c3f9a7b16a.png)
+![image](https://user-images.githubusercontent.com/72557903/195861440-6b0d9f50-87c6-4c04-b7bc-b9d6a3f6b8a1.png)
+* Erase the poly areas and remove angled edges of layers that magic doesn't support and comes out as DRC errors
+
+* **Exercise**
+
+* Final view after solving individual angled errors and well as errors due to overlap of non-manhattan layers.
+
+![image](https://user-images.githubusercontent.com/72557903/195865983-7c122760-a483-489c-94eb-f5be7056be12.png)
+
+* **Exercise**
+
+* Seal ring is a layer that goes around the perimeter of the chip along the padframe and protects the chip from sawing and dicing.
+* A seal ring generator is present that produces the correct seal ring shape by procedural script.
+* We see that attempting to paint over the seal ring causes DRC issues.
+* The proper tech file for the seal ring is not written as it is so abstract.
+
+* **Exercise**
+
+![image](https://user-images.githubusercontent.com/72557903/195869467-f531cf40-056c-4f0b-9d61-2a81bb26375e.png)
+
+* On questioning these errors, we see that the n-well not only miss taps but theses taps must also be present at adequate distances from diffusion regions to prevent latchup conditions!
+* We adjust the taps manually without using 'Place and Route' to clarify latchup errors.
 
 ### DAY 5
 
@@ -659,5 +721,8 @@ R -> Resistor, C -> Capacitor, D-> Diode
 * From the layout, we curate the errors due to power supply problems.
 ## REFERENCES
 
-https://web.stanford.edu/class/ee133/handouts/general/spice_ref.pdf ( For knowledge on how to read SPICE files)
+* All pictures (other than the necessary screenshots from my own machine) for explanations is taken from Tim Edward's presentations SKYWATER PDK.
+* https://web.stanford.edu/class/ee133/handouts/general/spice_ref.pdf ( For knowledge on how to read SPICE files)
+* https://www.skywatertechnology.com/
+* http://opencircuitdesign.com/
 
