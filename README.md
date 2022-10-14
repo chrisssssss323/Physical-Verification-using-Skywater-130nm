@@ -70,7 +70,7 @@ Although several designs that have been successfully fabricated commercially in 
 	7.Net-list +  Simulate  <br />
 	8.Go back, turn LVS option on on original and quit.  <br />
 
-The starting page of Xschem!
+The starting page of Xschem(.sch)!
 
 ![Two](https://user-images.githubusercontent.com/72557903/195265694-b6b96f63-6494-491e-98ea-76ee78e1f8d2.JPG)
 
@@ -86,6 +86,8 @@ The starting page of Xschem!
 
 ![image](https://user-images.githubusercontent.com/72557903/195255111-0fec957b-a5d7-447c-a9f2-28329c67a1b2.png)
 
+ * .sch -> .spice
+ * 
 * **magic** -  Upon properly setting up, we can find the technology used as SKY130 and various layers of the technology! *magic -d XR* - Better 3D rendering for colors/symbols and *magic -d OGL* - Faster. <br />
 * Documentation on magic! -http://opencircuitdesign.com/magic/tutorials/tut2.html
 	
@@ -96,10 +98,7 @@ The starting page of Xschem!
 	5.%what - check component specs <br />
   	6.CTRL+p for parameter checks <br />
 	*PS* -Moving is different than xschem, move to lower left hand corner and click M after using I
-* CMOS Inverter in magic
-![image](https://user-images.githubusercontent.com/72557903/195334075-2d321786-baab-4220-a5e5-57dc65ea06fa.png)
-
-
+	
 A sample NFET portray on magic!
 ![Three](https://user-images.githubusercontent.com/72557903/195254908-6ef9a459-e08d-4460-8725-2098b43bc980.JPG)
 
@@ -542,13 +541,41 @@ R -> Resistor, C -> Capacitor, D-> Diode
 ![image](https://user-images.githubusercontent.com/72557903/195767617-4502caee-a7f7-4632-b6ac-ca24cdd2ef73.png)
 
 * So what can we do to make the netgen not hink like this (Because swapping resistor pins won't change anything)
-* To do so, modify the sky130A.setup.tcl file with
+* To do so, modify the sky130A.setup.tcl file with the following change to the eof.
 
 		permute "-circuit1 cell1" A C
-		permute "-circuit2 cell2" A C
+		permute "-circuit2 cell1" A C
 		
 * Now netgen knows that the cell1 is both the cicuits are permutable.
-* Point to be noted- If netgen notices that the subcircuit pins are mismatched, it'll not flag an error if it sees that the pins in both the circuits are used the same topologically.
+
+![image](https://user-images.githubusercontent.com/72557903/195769887-01ad755f-378e-47a5-b90d-44d5a41e39b7.png)
+
+* Point to be noted- If netgen notices that the subcircuit pins are mismatched, it'll not flag an error if it sees that the pins in both the circuits are used the same topologically( but mismatches will be shown)
+
+#### Small analog block
+
+* Full doc -https://github.com/efabless/caravel_user_project_analog
+* **Power-On Reset**- Every time power is applied to a certain electrical device, a power-on-reset circuit generates resetting signals. By doing so, you can identify a known state in which the device always turns on or activates.
+
+![image](https://user-images.githubusercontent.com/72557903/195773305-982042f6-b74c-452e-950d-901faeba1388.png)
+* Turn the 'top-level netlist is a .subcircuit' option ON.
+* Generate a netlist from the xschem and exit out.
+------------------------------------------------------------------
+![image](https://user-images.githubusercontent.com/72557903/195777590-8390de44-7cfd-4533-8a2b-bbb14324e0e1.png)
+* In the mean-time lets see some things about resistors from the setup.tcl file*
+* We see that the pins are interchangeable and see how series and parallel combinations are defined.
+-----------------------------------------------------------------
+* We dash out to the magic directory, open our .mag file and perform the extraction.
+![image](https://user-images.githubusercontent.com/72557903/195780577-312aeac0-c6df-49d4-a9a9-3be5cb407861.png)
+
+* We go to the netgen directory and see the contents of the *run_lvs_warpper.sh*
+![image](https://user-images.githubusercontent.com/72557903/195781325-8f118524-7470-49cb-aa90-370fb520c695.png)
+
+* Perform LVS
+![image](https://user-images.githubusercontent.com/72557903/195782129-ae376e06-2c56-47e9-8f09-9946cc4b6ec9.png)
 
 
+## REFERENCES
+
+https://web.stanford.edu/class/ee133/handouts/general/spice_ref.pdf ( For knowledge on how to read SPICE files)
 
