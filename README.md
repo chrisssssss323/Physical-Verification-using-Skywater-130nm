@@ -574,6 +574,45 @@ R -> Resistor, C -> Capacitor, D-> Diode
 * Perform LVS
 ![image](https://user-images.githubusercontent.com/72557903/195782129-ae376e06-2c56-47e9-8f09-9946cc4b6ec9.png)
 
+* A clear problem is being evident, the layout labels all the cells properly, but the .spice from the schematic doesn't. So, a lot of proxy pins are created on both subs.
+![image](https://user-images.githubusercontent.com/72557903/195782630-8544233d-589a-4f8d-81a9-a7a4684a9521.png)
+
+* So the need for a proper subcircuit definition becomes the need of the hour.
+![image](https://user-images.githubusercontent.com/72557903/195783729-1ce71675-2fd5-4b21-9b88-b41f834d89b0.png)
+
+* We do LVS with the xschem tb file as circuit2
+![image](https://user-images.githubusercontent.com/72557903/195784791-00bb3c51-9288-4c1f-bac4-7d08785c9ba6.png)
+
+* The layout has more hierarchical structure than the schematic.
+
+#### Layout vs Verilog for standard cells
+
+* Load digital PLL file into mag and extract using the usual commands.
+
+![image](https://user-images.githubusercontent.com/72557903/195825522-801515df-970b-4b76-ac75-76d7efdb3c9c.png)
+
+* Start of the verilog module
+![image](https://user-images.githubusercontent.com/72557903/195826281-498d1bb4-8aa6-4214-a526-d465a5019cea.png)
+
+* LVS
+![image](https://user-images.githubusercontent.com/72557903/195827200-f7ba389c-d09f-4565-9ea4-597e6c6bfd17.png)
+
+* The problem-causing FILLER_0_11!
+![image](https://user-images.githubusercontent.com/72557903/195829565-f3bb317d-52fb-4fc0-ba53-c4cc874cb46b.png)
+
+* After going through the setup.tcl file and understanding that the environment variable needs to be added to the run_lvs.sh by
+		
+		export MAGIC_EXT_USE_GDS =1
+
+![image](https://user-images.githubusercontent.com/72557903/195831461-d0ca2ce1-57ec-41eb-a958-98a6bc4749b6.png)
+
+#### LVS FOR MACROS
+
+* Load mgmt_protect file onto magic and do the required extraction.
+* After performing LVS with the verilog file and the extracted mag file, we get the following message.
+![image](https://user-images.githubusercontent.com/72557903/195833774-33bdac83-4a40-49bb-8685-2735297f66c3.png)
+
+
 
 ## REFERENCES
 
