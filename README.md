@@ -487,7 +487,8 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 
 * Focusses on doing LVS with *netgen*
 * We use Tim's sample repo to do various excercises in this section.
-* Simple LVS experiment
+
+#### Simple LVS experiment
 
 ![image](https://user-images.githubusercontent.com/72557903/195617064-b736a008-0fb5-4f8d-9bac-f0a9d3072a59.png)
 ![image](https://user-images.githubusercontent.com/72557903/195632010-3d185434-e118-4dc2-a7ea-343ba8c835ec.png)
@@ -501,4 +502,53 @@ Eg- Several devices like a PNP bipolar transistor is already present as a block 
 * See, even changing the subcircuit pin names, doesnt raise an error in netgen.
 
 * If we totally swap the pins, we get a netlist match, but a top level pin matching error.
-* 
+
+#### LVS with subcircuits and blackboxes
+
+* To overcome writing lengthy command every time, we can actually create a bash script for the same.
+* We tee content to a json file to to make it more parsable.
+* run_lvs.sh
+
+		#!/bin/sh
+		netgen -batch lvs "netA.spice" "netB.spice test" /usr/share/pdk/sky130A/libs.tech/netgen/sky130A_setup.tcl exercise_2_comp.out -json | tee lvs.log
+		echo ""
+		../count_lvs.py exercise_2_comp.json | tee -a lvs.log
+	
+* *chmod a+x run_lvs.sh* to make this executable and tada!
+
+* If we change the pins in blockboxes we encounter erros in the form of mismatches.
+
+![image](https://user-images.githubusercontent.com/72557903/195762461-c72b9e09-98e8-4a0d-b0b2-df3db7cc2b7e.png)
+* *Change of a subcircuit pin to a random pin name creaes an error and when we see the comp.out file we see that proxy pins are created.*
+
+![image](https://user-images.githubusercontent.com/72557903/195764270-f7c4a062-99da-4ff5-a51e-a5863033f5ea.png)
+
+* Now let's mess with the cell names. If we change the netA.spice cell1 -> cell4 let's see what comes of it.
+![image](https://user-images.githubusercontent.com/72557903/195764798-edff52fe-f62d-4e16-a97c-8d8df2ee8173.png)
+
+* Problem with black box cells is that we wouldn't know when a cell is treated as a blackbox.
+* So we use the -blackbox option in our run_lvs.sh file to fix this.
+
+![image](https://user-images.githubusercontent.com/72557903/195764871-a344f47a-32bb-4481-b59e-e8f3dd4361cb.png)
+* *We see the indication of no matching elements for cell1 and cell4 in these files.*
+
+#### Final example
+
+* For our last example, let's take two files netA.spice and netB.spice with netA.spice defined as follows-
+![image](https://user-images.githubusercontent.com/72557903/195766696-b024810a-c00a-4036-9330-5551a945bf97.png)
+R -> Resistor, C -> Capacitor, D-> Diode
+
+* If I now swap A and C in cell subcircuit cell1, I get the same error of mismatches.
+![image](https://user-images.githubusercontent.com/72557903/195767617-4502caee-a7f7-4632-b6ac-ca24cdd2ef73.png)
+
+* So what can we do to make the netgen not hink like this (Because swapping resistor pins won't change anything)
+* To do so, modify the sky130A.setup.tcl file with
+
+		permute "-circuit1 cell1" A C
+		permute "-circuit2 cell2" A C
+		
+* Now netgen knows that the cell1 is both the cicuits are permutable.
+* Point to be noted- If netgen notices that the subcircuit pins are mismatched, it'll not flag an error if it sees that the pins in both the circuits are used the same topologically.
+
+
+
