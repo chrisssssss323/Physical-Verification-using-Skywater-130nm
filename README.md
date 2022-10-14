@@ -610,9 +610,25 @@ R -> Resistor, C -> Capacitor, D-> Diode
 
 * Load mgmt_protect file onto magic and do the required extraction.
 * After performing LVS with the verilog file and the extracted mag file, we get the following message.
+
 ![image](https://user-images.githubusercontent.com/72557903/195833774-33bdac83-4a40-49bb-8685-2735297f66c3.png)
 
+* Why is this error coming about? This is because of some behavioural nature in the verilog code.
+* When we look into the *mgmt_protect.v*, wee see that at line 244, a seemingly harmless '~' does the trouble.
 
+![image](https://user-images.githubusercontent.com/72557903/195834898-3543e6cc-ead0-4d05-8db3-48568f40112e.png)
+
+* After using the actual gate-level .v file from the /verilog/ dir, let's run the LVS again
+
+![image](https://user-images.githubusercontent.com/72557903/195835745-d3e9b854-8e95-4ac0-a6c6-547f8555b76d.png)
+
+* There are still some errors to be handled. In terms of Magic, they have been combined with other gnd pins. Layout tools frequently act in this way when representing substrates for substrate connection. In order to address this, Magic has a layer called isosub that isolates substrate layers, although at the moment, Magic cannot isolate more than one substrate layer simultaneously. This function is still being developed.
+
+* When we finally do the required connections to ground and run the LVS script again we see that the mismatch errors have been completely removed.
+
+#### LVS DIGITAL PLL
+
+*
 
 ## REFERENCES
 
